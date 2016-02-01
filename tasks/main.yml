@@ -1,44 +1,41 @@
 ---
-# tasks file for anaconda
+# tasks file for miniconda
 - name: download installer.sh
   get_url: >
-    url={{anaconda_installer_url}}
-    dest=/tmp/{{anaconda_installer_sh}}
+    url={{miniconda_installer_url}}
+    dest=/tmp/{{miniconda_installer_sh}}
     owner=root
     group=root
     mode=0755
 
 - name: installing conda
-  command: /tmp/{{anaconda_installer_sh}} -b -p /opt/{{anaconda_name}}
+  command: /tmp/{{miniconda_installer_sh}} -b -p /opt/{{miniconda_name}}
   args:
-    creates: /opt/{{anaconda_name}}/bin/conda
+    creates: /opt/{{miniconda_name}}/bin/conda
 
 - name: deleting installer...
-  when: anaconda_cleanup
+  when: miniconda_cleanup
   file:
-    path=/tmp/{{anaconda_installer_sh}}
+    path=/tmp/{{miniconda_installer_sh}}
     state=absent
     
-- name: link anaconda...
+- name: link miniconda...
   file:
-    dest=/opt/anaconda
-    src=/opt/{{anaconda_name}}
+    dest=/opt/miniconda
+    src=/opt/{{miniconda_name}}
     state=link
     owner=root
     group=root
 
 - name: conda updates
-  command: /opt/anaconda/bin/conda update -y {{item}}
-  with_items: '{{ anaconda_pkg_list }}'
+  command: /opt/miniconda/bin/conda update -y {{item}}
+  with_items: '{{ miniconda_pkg_list }}'
 
-- name: remove conda curl -- it seems to cause some problems...
-  command: /opt/anaconda/bin/conda remove -y curl
-    
 - name: make system default python etc...
-  when: anaconda_make_sys_default
+  when: miniconda_make_sys_default
   copy: >-
-    src=etc/profile.d/anaconda.sh
-    dest=/etc/profile.d/anaconda.sh
+    src=etc/profile.d/miniconda.sh
+    dest=/etc/profile.d/miniconda.sh
     mode=0644
     owner=root
     group=root

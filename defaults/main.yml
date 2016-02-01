@@ -1,18 +1,11 @@
 ---
-# defaults file for anaconda
-anaconda_mirror : 'http://repo.continuum.io/archive'
-anaconda_python_ver : '2'
-anaconda_ver : '2.4.1'
-anaconda_platform : 'Linux-x86_64'
+# defaults file for miniconda
+miniconda_mirror : 'http://repo.continuum.io/miniconda'
+miniconda_python_ver : '2'
+miniconda_ver : '2.4.1'
+miniconda_platform : 'Linux-x86_64'
 
-anaconda_make_sys_default : False
-anaconda_cleanup : False
+miniconda_make_sys_default : False
+miniconda_cleanup : False
 
-anaconda_pkg_list :
-  - conda
-  - pandas
-  - numpy
-  - scipy
-  - scikit-learn
-  - ipython
-  - jupyter
+miniconda_pkg_list : [ "conda" ]
