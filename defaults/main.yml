@@ -8,4 +8,4 @@ miniconda_platform : 'Linux-x86_64'
 miniconda_make_sys_default : False
 miniconda_cleanup : False
 
-miniconda_pkg_list : [ "conda" ]
+miniconda_pkg_list : []
