@@ -27,9 +27,12 @@
     owner=root
     group=root
 
-- name: conda updates
-  command: /opt/miniconda/bin/conda update -y {{item}}
+- name: install additional packages...
+  command: /opt/miniconda/bin/conda install -y {{item}}
   with_items: '{{ miniconda_pkg_list }}'
+
+- name: conda updates
+  command: /opt/miniconda/bin/conda update -y --all
 
 - name: make system default python etc...
   when: miniconda_make_sys_default
