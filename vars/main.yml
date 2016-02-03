@@ -1,5 +1,5 @@
 ---
 # the 2 is left off for the python2 build
-miniconda_name : 'Miniconda{% if miniconda_python_ver == 2 %}{% else %}{{miniconda_python_ver}}{% endif %}-{{miniconda_ver}}-{{miniconda_platform}}'
+miniconda_name : 'Miniconda{{miniconda_python_ver}}-{{miniconda_ver}}-{{miniconda_platform}}'
 miniconda_installer_sh : '{{miniconda_name}}.sh'
 miniconda_installer_url : '{{miniconda_mirror}}/{{miniconda_installer_sh}}'
