@@ -8,6 +8,7 @@
     dest=/tmp/{{miniconda_installer_sh}}
     mode=0755
     timeout={{miniconda_timeout_seconds}}
+    checksum={{miniconda_checksum}}
 
 - name: installing conda
   become: yes
