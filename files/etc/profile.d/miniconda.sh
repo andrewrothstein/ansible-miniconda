@@ -1,5 +1,5 @@
-ANACONDA_DIR=/opt/anaconda
+ANACONDA_DIR=/opt/miniconda
 PATH=${ANACONDA_DIR}/bin:${PATH}
 PYTHON=${ANACONDA_DIR}/bin/python
-LD_LIBRARY_PATH=${ANACONDA_DIR}/lib:${LD_LIBRARY_PATH}
+
 

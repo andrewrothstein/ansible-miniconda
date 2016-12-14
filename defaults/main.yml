@@ -1,11 +1,16 @@
 ---
 # defaults file for miniconda
-miniconda_mirror : 'http://repo.continuum.io/miniconda'
+miniconda_mirror : http://repo.continuum.io/miniconda
 miniconda_python_ver : '2'
-miniconda_ver : '3.19.0'
-miniconda_platform : 'Linux-x86_64'
+
+miniconda_ver : '4.2.12'
+miniconda_platform : Linux-x86_64
+miniconda_checksum: md5:c8b836baaa4ff89192947e4b1a70b07e
+
+miniconda_timeout_seconds: 600
 
 miniconda_make_sys_default : False
+
 miniconda_cleanup : False
 
 miniconda_pkg_list : []

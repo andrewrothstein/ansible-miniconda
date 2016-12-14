@@ -1,45 +1,56 @@
 ---
 # tasks file for miniconda
 - name: download installer.sh
+  become: yes
+  become_user: root
   get_url: >
     url={{miniconda_installer_url}}
     dest=/tmp/{{miniconda_installer_sh}}
-    owner=root
-    group=root
     mode=0755
+    timeout={{miniconda_timeout_seconds}}
 
 - name: installing conda
+  become: yes
+  become_user: root
   command: /tmp/{{miniconda_installer_sh}} -b -p /opt/{{miniconda_name}}
   args:
     creates: /opt/{{miniconda_name}}/bin/conda
 
 - name: deleting installer...
+  become: yes
+  become_user: root
   when: miniconda_cleanup
   file:
     path=/tmp/{{miniconda_installer_sh}}
     state=absent
     
 - name: link miniconda...
+  become: yes
+  become_user: root
   file:
     dest=/opt/miniconda
     src=/opt/{{miniconda_name}}
     state=link
-    owner=root
-    group=root
 
 - name: install additional packages...
+  become: yes
+  become_user: root
   command: /opt/miniconda/bin/conda install -y {{item}}
   with_items: '{{ miniconda_pkg_list }}'
 
 - name: conda updates
+  become: yes
+  become_user: root
   command: /opt/miniconda/bin/conda update -y --all
 
 - name: make system default python etc...
   when: miniconda_make_sys_default
+  become: yes
+  become_user: root
+  with_items:
+    - etc/profile.d/miniconda.sh
   copy: >-
-    src=etc/profile.d/miniconda.sh
-    dest=/etc/profile.d/miniconda.sh
+    src={{item}}
+    dest=/{{item}}
     mode=0644
-    owner=root
-    group=root
     
