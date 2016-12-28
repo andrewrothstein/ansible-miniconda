@@ -1,11 +1,11 @@
 ---
 # defaults file for miniconda
 miniconda_mirror : http://repo.continuum.io/miniconda
-miniconda_python_ver : '2'
+miniconda_python_ver : '3'
 
 miniconda_ver : '4.2.12'
 miniconda_platform : Linux-x86_64
-miniconda_checksum: md5:c8b836baaa4ff89192947e4b1a70b07e
+miniconda_checksum: md5:d0c7c71cc5659e54ab51f2005a8d96f3
 
 miniconda_timeout_seconds: 600
 
