@@ -4,7 +4,7 @@ miniconda_mirror : https://repo.continuum.io/miniconda
 miniconda_python_ver : 3
 
 miniconda_ver : '4.2.12'
-miniconda_checksum:
+miniconda_checksums:
     Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
     Miniconda3-4.2.12-Linux-x86_64.sh: md5:d0c7c71cc5659e54ab51f2005a8d96f3
     Miniconda2-4.2.12-MacOSX-x86_64.sh: md5:ff3d7b69e32e1e4246176fb90f8480c8
