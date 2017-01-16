@@ -13,7 +13,7 @@
 - name: installing....
   become: yes
   become_user: root
-  command: /tmp/{{miniconda_installer_sh}} -b -p /opt/{{miniconda_name}}
+  command: /tmp/{{miniconda_installer_sh}} -b -p {{miniconda_parent_dir}}/{{miniconda_name}}
   args:
     creates: '{{miniconda_parent_dir}}/{{miniconda_name}}'
 
