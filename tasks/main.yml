@@ -1,48 +1,42 @@
 ---
 # tasks file for miniconda
-- name: download installer.sh
+- name: download installer...
   become: yes
   become_user: root
-  get_url: >
-    url={{miniconda_installer_url}}
-    dest=/tmp/{{miniconda_installer_sh}}
-    mode=0755
-    timeout={{miniconda_timeout_seconds}}
-    checksum={{miniconda_checksum}}
+  get_url:
+    url: '{{miniconda_installer_url}}'
+    dest: /tmp/{{miniconda_installer_sh}}
+    timeout: '{{miniconda_timeout_seconds}}'
+    checksum: '{{miniconda_checksum}}'
+    mode: '0755'
 
-- name: installing conda
+- name: installing....
   become: yes
   become_user: root
   command: /tmp/{{miniconda_installer_sh}} -b -p /opt/{{miniconda_name}}
   args:
-    creates: /opt/{{miniconda_name}}/bin/conda
+    creates: '{{miniconda_parent_dir}}/{{miniconda_name}}'
 
 - name: deleting installer...
   become: yes
   become_user: root
   when: miniconda_cleanup
   file:
-    path=/tmp/{{miniconda_installer_sh}}
-    state=absent
+    path: /tmp/{{miniconda_installer_sh}}
+    state: absent
     
 - name: link miniconda...
   become: yes
   become_user: root
   file:
-    dest=/opt/miniconda
-    src=/opt/{{miniconda_name}}
-    state=link
-
-- name: install additional packages...
-  become: yes
-  become_user: root
-  command: /opt/miniconda/bin/conda install -y {{item}}
-  with_items: '{{ miniconda_pkg_list }}'
+    dest: '{{miniconda_parent_dir}}/miniconda'
+    src: '{{miniconda_parent_dir}}/{{miniconda_name}}'
+    state: link
 
 - name: conda updates
   become: yes
   become_user: root
-  command: /opt/miniconda/bin/conda update -y --all
+  command: '{{miniconda_parent_dir}}/miniconda/bin/conda update -y --all'
 
 - name: make system default python etc...
   when: miniconda_make_sys_default
@@ -50,8 +44,8 @@
   become_user: root
   with_items:
     - etc/profile.d/miniconda.sh
-  copy: >-
-    src={{item}}
-    dest=/{{item}}
-    mode=0644
+  template:
+    src: '{{item}}.j2'
+    dest: /{{item}}
+    mode: 0644
     

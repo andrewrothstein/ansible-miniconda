@@ -26,6 +26,8 @@ galaxy_info:
     - miniconda
 
 dependencies:
+  - role: andrewrothstein.unarchive-deps
+    version: v1.0.5
   - role: andrewrothstein.bash
     version: v1.0.0
   - role: andrewrothstein.alpine-glibc-shim
