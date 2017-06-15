@@ -25,6 +25,8 @@ miniconda_make_sys_default : False
 miniconda_cleanup : False
 
 miniconda_parent_dir: /usr/local
-miniconda_link_subdir: miniconda
+
+# for ease of use as a drop in replacements for an anaconda installation
+miniconda_link_subdir: anaconda
 
 miniconda_pkg_update: True
