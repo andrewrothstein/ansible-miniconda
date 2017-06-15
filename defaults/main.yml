@@ -3,12 +3,16 @@
 miniconda_mirror : https://repo.continuum.io/miniconda
 miniconda_python_ver : 3
 
-miniconda_ver : '4.2.12'
+miniconda_ver : '4.3.21'
 miniconda_checksums:
-    Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
-    Miniconda3-4.2.12-Linux-x86_64.sh: md5:d0c7c71cc5659e54ab51f2005a8d96f3
-    Miniconda2-4.2.12-MacOSX-x86_64.sh: md5:ff3d7b69e32e1e4246176fb90f8480c8
-    Miniconda3-4.2.12-MacOSX-x86_64.sh: md5:73463d2644d5e428419b7c1d304e89fa
+  Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
+  Miniconda3-4.2.12-Linux-x86_64.sh: md5:d0c7c71cc5659e54ab51f2005a8d96f3
+  Miniconda2-4.2.12-MacOSX-x86_64.sh: md5:ff3d7b69e32e1e4246176fb90f8480c8
+  Miniconda3-4.2.12-MacOSX-x86_64.sh: md5:73463d2644d5e428419b7c1d304e89fa
+  Miniconda2-4.3.21-Linux-x86_64.sh: md5:7097150146dd3b83c805223663ebffcc
+  Miniconda3-4.3.21-Linux-x86_64.sh: md5:c1c15d3baba15bf50293ae963abef853
+  Miniconda2-4.3.21-MacOSX-x86_64.sh: md5:3f7860462b4e9cd42d17132300c270cc
+  Miniconda3-4.3.21-MacOSX-x86_64.sh: md5:cf092c4fb158ecf28c88c388ca565d95
 
 miniconda_timeout_seconds: 600
 
@@ -21,3 +25,6 @@ miniconda_make_sys_default : False
 miniconda_cleanup : False
 
 miniconda_parent_dir: /usr/local
+miniconda_link_subdir: miniconda
+
+miniconda_pkg_update: True

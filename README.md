@@ -1,20 +1,32 @@
-miniconda
+andrewrothstein.miniconda
 =========
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-miniconda.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-miniconda)
 
-Installs the mini-Anaconda distribution to /opt/miniconda
+Installs [Miniconda](https://conda.io/miniconda.html)
 
-miniconda_make_sys_default will put the python distro packaged with Anaconda into the default bash path
-miniconda_cleanup will delete the installer binary after completing the installation. useful inside of containers. breaks idempotency.
+Requirements
+------------
 
+See [meta/main.yml](meta/main.yml)
+
+Role Variables
+--------------
+
+See [defaults/main.yml](defaults/main.yml)
+
+Dependencies
+------------
+
+See [meta/main.yml](meta/main.yml)
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - andrewrothstein.miniconda
+```yml
+- hosts: servers
+  roles:
+    - andrewrothstein.miniconda
+```
 
 License
 -------

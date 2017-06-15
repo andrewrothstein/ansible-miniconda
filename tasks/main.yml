@@ -8,14 +8,14 @@
     dest: /tmp/{{miniconda_installer_sh}}
     timeout: '{{miniconda_timeout_seconds}}'
     checksum: '{{miniconda_checksum}}'
-    mode: '0755'
+    mode: 0755
 
 - name: installing....
   become: yes
   become_user: root
-  command: /tmp/{{miniconda_installer_sh}} -b -p {{miniconda_parent_dir}}/{{miniconda_name}}
+  command: /tmp/{{miniconda_installer_sh}} -b -p {{miniconda_install_dir}}
   args:
-    creates: '{{miniconda_parent_dir}}/{{miniconda_name}}'
+    creates: '{{miniconda_install_dir}}'
 
 - name: deleting installer...
   become: yes
@@ -29,23 +29,32 @@
   become: yes
   become_user: root
   file:
-    dest: '{{miniconda_parent_dir}}/miniconda'
-    src: '{{miniconda_parent_dir}}/{{miniconda_name}}'
+    src: '{{miniconda_install_dir}}'
+    dest: '{{miniconda_link_dir}}'
     state: link
 
 - name: conda updates
   become: yes
   become_user: root
-  command: '{{miniconda_parent_dir}}/miniconda/bin/conda update -y --all'
+  when: miniconda_pkg_update
+  command: '{{miniconda_conda_bin}} update -y --all'
 
+- name: remove conda-curl since it conflicts with the system curl
+  become: yes
+  become_user: root
+  command: '{{miniconda_conda_bin}} remove -y curl'
+  args:
+    removes: '{{miniconda_link_dir}}/lib/libcurl.a'
+  
 - name: make system default python etc...
   when: miniconda_make_sys_default
   become: yes
   become_user: root
   with_items:
-    - etc/profile.d/miniconda.sh
+    - f: miniconda.sh
+      d: /etc/profile.d
   template:
-    src: '{{item}}.j2'
-    dest: /{{item}}
-    mode: 0644
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m|default("0644")}}'
     

@@ -1,7 +1,11 @@
 ---
-# the 2 is left off for the python2 build
 miniconda_platform : '{{ansible_system}}-{{ansible_machine}}'
 miniconda_name : 'Miniconda{{miniconda_python_ver}}-{{miniconda_ver}}-{{miniconda_platform}}'
 miniconda_installer_sh : '{{miniconda_name}}.sh'
 miniconda_installer_url : '{{miniconda_mirror}}/{{miniconda_installer_sh}}'
 miniconda_checksum: '{{miniconda_checksums[miniconda_installer_sh]}}'
+
+miniconda_install_dir: '{{miniconda_parent_dir}}/{{miniconda_name}}'
+miniconda_link_dir: '{{miniconda_parent_dir}}/{{miniconda_link_subdir}}'
+
+miniconda_conda_bin: '{{miniconda_link_dir}}/bin/conda'
