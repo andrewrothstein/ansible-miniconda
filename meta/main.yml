@@ -26,7 +26,7 @@ galaxy_info:
 
 dependencies:
   - role: andrewrothstein.bash
-    version: v1.0.3
+    version: v1.0.4
   - role: andrewrothstein.unarchive-deps
-    version: v1.0.8
+    version: v1.0.9
   
