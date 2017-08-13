@@ -4,7 +4,7 @@
   become: yes
   stat:
     path: '{{ miniconda_conda_bin }}'
-  change_when: false
+  changed_when: false
   register: miniconda_conda_binary
 
 - when: not miniconda_conda_binary.stat.exists
