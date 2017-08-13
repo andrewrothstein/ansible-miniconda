@@ -20,10 +20,6 @@ miniconda_timeout_seconds: 600
 # Caveat Emptor: if your 
 miniconda_make_sys_default : False
 
-# when installed inside a container delete all of the installer artifacts. won't be
-# idempotent but will be smaller in terms of layer/image size
-miniconda_cleanup : False
-
 miniconda_parent_dir: /usr/local
 
 # for ease of use as a drop in replacements for an anaconda installation
