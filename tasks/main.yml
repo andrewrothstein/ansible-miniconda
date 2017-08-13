@@ -30,7 +30,6 @@
     - name: deleting installer...
       become: yes
       become_user: root
-      when: miniconda_cleanup
       file:
         path: /tmp/{{miniconda_installer_sh}}
         state: absent
