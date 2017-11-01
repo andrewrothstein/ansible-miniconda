@@ -15,8 +15,8 @@ miniconda_checksums:
   Miniconda2-4.3.21-MacOSX-x86_64.sh: md5:3f7860462b4e9cd42d17132300c270cc
   Miniconda3-4.3.21-MacOSX-x86_64.sh: md5:cf092c4fb158ecf28c88c388ca565d95
   Miniconda2-4.3.30-Linux-x86_64.sh: md5:bd1655b4b313f7b2a1f2e15b7b925d03
-  Miniconda3-4.3.30-Linux-x86_64.sh: md5:c9518b83488c85d44505a44c03a0ea1e
-  Miniconda2-4.3.30-MacOSX-x86_64.sh: md5:a2028825bbbb40f390ccb8ddc83e00bb
+  Miniconda3-4.3.30-Linux-x86_64.sh: md5:0b80a152332a4ce5250f3c09589c7a81
+  Miniconda2-4.3.30-MacOSX-x86_64.sh: md5:4d05c89e6ee8bce6693a26512a297d63
   Miniconda3-4.3.30-MacOSX-x86_64.sh: md5:49c6a540347426ab522600a93b73e39e
 
 miniconda_timeout_seconds: 600
