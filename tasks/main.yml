@@ -1,7 +1,7 @@
 ---
 
 - name: check for installation of Miniconda
-  become: yes
+  become: '{{miniconda_escalate}}'
   stat:
     path: '{{ miniconda_conda_bin }}'
   changed_when: false
@@ -10,7 +10,7 @@
 - when: not miniconda_conda_binary.stat.exists
   block:
     - name: download installer...
-      become: yes
+      become: '{{miniconda_escalate}}'
       become_user: root
       get_url:
         url: '{{miniconda_installer_url}}'
@@ -20,7 +20,7 @@
         mode: 0755
 
     - name: installing....
-      become: yes
+      become: '{{miniconda_escalate}}'
       become_user: root
       command: /tmp/{{miniconda_installer_sh}} -b -p {{miniconda_install_dir}}
       args:
@@ -28,14 +28,14 @@
 
   always:
     - name: deleting installer...
-      become: yes
+      become: '{{miniconda_escalate}}'
       become_user: root
       file:
         path: /tmp/{{miniconda_installer_sh}}
         state: absent
-    
+
 - name: link miniconda...
-  become: yes
+  become: '{{miniconda_escalate}}'
   become_user: root
   file:
     src: '{{miniconda_install_dir}}'
@@ -43,18 +43,18 @@
     state: link
 
 - name: update conda pkgs...
-  become: yes
+  become: '{{miniconda_escalate}}'
   become_user: root
   when: miniconda_pkg_update
   command: '{{miniconda_conda_bin}} update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
-  become: yes
+  become: '{{miniconda_escalate}}'
   become_user: root
   command: '{{miniconda_conda_bin}} remove -y curl'
   args:
     removes: '{{miniconda_link_dir}}/lib/libcurl.a'
-  
+
 - name: make system default python etc...
   when: miniconda_make_sys_default
   become: yes
@@ -66,4 +66,4 @@
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
     mode: '{{item.m|default("0644")}}'
-    
+
