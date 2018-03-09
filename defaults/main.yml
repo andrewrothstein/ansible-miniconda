@@ -26,7 +26,7 @@ miniconda_checksums:
 miniconda_timeout_seconds: 600
 
 # add the miniconda python onto the front of the path.
-# Caveat Emptor: if your 
+# Caveat Emptor: if your
 miniconda_make_sys_default : False
 
 miniconda_parent_dir: /usr/local
@@ -35,3 +35,6 @@ miniconda_parent_dir: /usr/local
 miniconda_link_subdir: anaconda
 
 miniconda_pkg_update: True
+
+# become root?
+miniconda_escalate: True
