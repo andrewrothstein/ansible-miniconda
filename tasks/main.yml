@@ -7,12 +7,6 @@
   changed_when: false
   register: miniconda_conda_binary
 
-- name: check for installation of conda curl
-  become: '{{miniconda_escalate}}'
-  shell: '{{miniconda_conda_bin}} list -f curl | grep curl'
-  ignore_errors: True
-  register: miniconda_curl_exists
-
 - when: not miniconda_conda_binary.stat.exists
   block:
     - name: download installer...
@@ -53,6 +47,12 @@
   become_user: root
   when: miniconda_pkg_update
   command: '{{miniconda_conda_bin}} update -y --all'
+
+- name: check for installation of conda curl
+  become: '{{miniconda_escalate}}'
+  shell: '{{miniconda_conda_bin}} list -f curl | grep curl'
+  ignore_errors: True
+  register: miniconda_curl_exists
 
 - name: remove conda-curl since it conflicts with the system curl
   become: '{{miniconda_escalate}}'
