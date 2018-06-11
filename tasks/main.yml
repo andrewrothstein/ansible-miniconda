@@ -53,6 +53,7 @@
   shell: '{{miniconda_conda_bin}} list -f curl | grep curl'
   ignore_errors: True
   register: miniconda_curl_exists
+  when: miniconda_conda_binary.stat.exists
 
 - name: remove conda-curl since it conflicts with the system curl
   become: '{{miniconda_escalate}}'
