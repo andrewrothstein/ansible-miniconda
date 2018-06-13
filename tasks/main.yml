@@ -49,11 +49,12 @@
   command: '{{miniconda_conda_bin}} update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
-  become: '{{miniconda_escalate}}'
+  become: yes
   become_user: root
-  command: '{{miniconda_conda_bin}} remove -y curl'
-  args:
-    removes: '{{miniconda_link_dir}}/lib/libcurl.a'
+  conda:
+    name: curl
+    state: absent
+    executable: '{{ miniconda_conda_bin }}'
 
 - name: make system default python etc...
   when: miniconda_make_sys_default
