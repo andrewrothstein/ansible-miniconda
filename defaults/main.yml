@@ -1,9 +1,9 @@
 ---
 # defaults file for miniconda
-miniconda_mirror : https://repo.continuum.io/miniconda
-miniconda_python_ver : 3
+miniconda_mirror: https://repo.continuum.io/miniconda
+miniconda_python_ver: 3
 
-miniconda_ver : '4.5.1'
+miniconda_ver: '4.5.4'
 # https://repo.continuum.io/miniconda/
 miniconda_checksums:
   Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
@@ -26,11 +26,15 @@ miniconda_checksums:
   Miniconda3-4.5.1-Linux-x86_64.sh: md5:0c28787e3126238df24c5d4858bd0744
   Miniconda2-4.5.1-MacOSX-x86_64.sh: md5:ad96c4012ca4d84d94f94d9c2f90a889
   Miniconda3-4.5.1-MacOSX-x86_64.sh: md5:ac87d2074bd50103468b8681084236f6
+  Miniconda2-4.5.4-Linux-x86_64.sh: md5:8a1c02f6941d8778f8afad7328265cf5
+  Miniconda3-4.5.4-Linux-x86_64.sh: md5:a946ea1d0c4a642ddf0c3a26a18bb16d
+  Miniconda2-4.5.4-MacOSX-x86_64.sh: md5:35f4ca99d33ed56f68745eeaf1449274
+  Miniconda3-4.5.4-MacOSX-x86_64.sh: md5:164ec263c4070db642ce31bb45d68813
 
 miniconda_timeout_seconds: 600
 
 # add the miniconda python onto the front of the path.
-miniconda_make_sys_default : False
+miniconda_make_sys_default: False
 
 miniconda_parent_dir: /usr/local
 
