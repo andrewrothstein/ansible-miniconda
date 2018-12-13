@@ -49,6 +49,7 @@
   command: '{{miniconda_conda_bin}} update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
+  when: miniconda_make_sys_default
   become: yes
   become_user: root
   conda:
