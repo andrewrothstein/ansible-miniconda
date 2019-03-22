@@ -1,52 +1,52 @@
 ---
 
 - name: check for installation of Miniconda
-  become: '{{miniconda_escalate}}'
+  become: '{{ miniconda_escalate }}'
   stat:
-    path: '{{ miniconda_conda_bin }}'
+    path: '{{  miniconda_conda_bin  }}'
   changed_when: false
   register: miniconda_conda_binary
 
 - when: not miniconda_conda_binary.stat.exists
   block:
     - name: download installer...
-      become: '{{miniconda_escalate}}'
+      become: '{{ miniconda_escalate }}'
       become_user: root
       get_url:
-        url: '{{miniconda_installer_url}}'
-        dest: /tmp/{{miniconda_installer_sh}}
-        timeout: '{{miniconda_timeout_seconds}}'
-        checksum: '{{miniconda_checksum}}'
+        url: '{{ miniconda_installer_url }}'
+        dest: /tmp/{{ miniconda_installer_sh }}
+        timeout: '{{ miniconda_timeout_seconds }}'
+        checksum: '{{ miniconda_checksum }}'
         mode: 0755
 
     - name: installing....
-      become: '{{miniconda_escalate}}'
+      become: '{{ miniconda_escalate }}'
       become_user: root
-      command: /tmp/{{miniconda_installer_sh}} -b -p {{miniconda_install_dir}}
+      command: /tmp/{{ miniconda_installer_sh }} -b -p {{ miniconda_install_dir }}
       args:
-        creates: '{{miniconda_install_dir}}'
+        creates: '{{ miniconda_install_dir }}'
 
   always:
     - name: deleting installer...
-      become: '{{miniconda_escalate}}'
+      become: '{{ miniconda_escalate }}'
       become_user: root
       file:
-        path: /tmp/{{miniconda_installer_sh}}
+        path: /tmp/{{ miniconda_installer_sh }}
         state: absent
 
 - name: link miniconda...
-  become: '{{miniconda_escalate}}'
+  become: '{{ miniconda_escalate }}'
   become_user: root
   file:
-    src: '{{miniconda_install_dir}}'
-    dest: '{{miniconda_link_dir}}'
+    src: '{{ miniconda_install_dir }}'
+    dest: '{{ miniconda_link_dir }}'
     state: link
 
 - name: update conda pkgs...
-  become: '{{miniconda_escalate}}'
+  become: '{{ miniconda_escalate }}'
   become_user: root
   when: miniconda_pkg_update
-  command: '{{miniconda_conda_bin}} update -y --all'
+  command: '{{ miniconda_conda_bin }} update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
   become: yes
@@ -64,6 +64,6 @@
     - f: miniconda.sh
       d: /etc/profile.d
   template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m|default("0644")}}'
+    src: '{{ item.f }}.j2'
+    dest: '{{ item.d }}/{{ item.f }}'
+    mode: '{{ item.m|default("0644") }}'
