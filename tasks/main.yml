@@ -22,7 +22,7 @@
     - name: installing....
       become: '{{ miniconda_escalate }}'
       become_user: root
-      command: /tmp/{{ miniconda_installer_sh }} -b -p {{ miniconda_install_dir }}
+      command: bash /tmp/{{ miniconda_installer_sh }} -b -p {{ miniconda_install_dir }}
       args:
         creates: '{{ miniconda_install_dir }}'
 
