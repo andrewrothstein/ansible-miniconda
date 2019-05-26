@@ -3,7 +3,7 @@
 miniconda_mirror: https://repo.continuum.io/miniconda
 miniconda_python_ver: 3
 
-miniconda_ver: '4.5.12'
+miniconda_ver: '4.6.14'
 # https://repo.continuum.io/miniconda/
 miniconda_checksums:
   Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
@@ -34,6 +34,11 @@ miniconda_checksums:
   Miniconda3-4.5.12-Linux-x86_64.sh: md5:866ae9dff53ad0874e1d1a60b1ad1ef8
   Miniconda2-4.5.12-MacOSX-x86_64.sh: md5:76041da218ab91e2c9538a5dc19cd14e
   Miniconda3-4.5.12-MacOSX-x86_64.sh: md5:a583d1e174e1dc960e87fb4b026a9370
+  Miniconda2-4.6.14-Linux-x86_64.sh: md5:faa7cb0b0c8986ac3cacdbbd00fe4168
+  Miniconda3-4.6.14-Linux-x86_64.sh: md5:718259965f234088d785cad1fbd7de03
+  Miniconda2-4.6.14-MacOSX-x86_64.sh: md5:6665a5911f92dce1cf6d1021249af9db
+  Miniconda3-4.6.14-MacOSX-x86_64.sh: md5:ffa5f0eead5576fb26b7e6902f5eed09
+
 
 miniconda_timeout_seconds: 600
 
