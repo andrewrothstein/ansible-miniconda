@@ -1,0 +1,3 @@
+---
+miniconda_dep_pkgs:
+  - grep

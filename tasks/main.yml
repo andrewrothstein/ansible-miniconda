@@ -1,4 +1,24 @@
 ---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: install Miniconda OS pkg dependencies
+  become: '{{ miniconda_escalate }}'
+  become_user: root
+  with_items: '{{ miniconda_dep_pkgs | default([]) }}'
+  loop_control:
+    loop_var: miniconda_os_pkg
+  package:
+    state: present
+    name: '{{ miniconda_os_pkg }}'
 
 - name: check for installation of Miniconda
   become: '{{ miniconda_escalate }}'
