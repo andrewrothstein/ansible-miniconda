@@ -46,6 +46,14 @@
       args:
         creates: '{{ miniconda_install_dir }}'
 
+    - name: link miniconda...
+      become: '{{ miniconda_escalate }}'
+      become_user: root
+      file:
+        src: '{{ miniconda_install_dir }}'
+        dest: '{{ miniconda_link_dir }}'
+        state: link
+
   always:
     - name: deleting installer...
       become: '{{ miniconda_escalate }}'
@@ -53,14 +61,6 @@
       file:
         path: /tmp/{{ miniconda_installer_sh }}
         state: absent
-
-- name: link miniconda...
-  become: '{{ miniconda_escalate }}'
-  become_user: root
-  file:
-    src: '{{ miniconda_install_dir }}'
-    dest: '{{ miniconda_link_dir }}'
-    state: link
 
 - name: update conda pkgs...
   become: '{{ miniconda_escalate }}'
@@ -88,3 +88,14 @@
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'
     mode: '{{ item.m|default("0644") }}'
+
+- name: disable auto updates of conda and dependencies
+  when: miniconda_disable_auto_updates
+  with_items:
+    - l: 'update_dependencies: False'
+    - l: 'auto_update_conda: False'
+  lineinfile:
+    path: '/etc/conda/.condarc'
+    line: '{{ item.l }}'
+    state: present
+    create: yes

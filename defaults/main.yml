@@ -3,7 +3,7 @@
 miniconda_mirror: https://repo.continuum.io/miniconda
 miniconda_python_ver: 3
 
-miniconda_ver: '4.6.14'
+miniconda_ver: '4.7.12'
 # https://repo.continuum.io/miniconda/
 miniconda_checksums:
   Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
@@ -38,7 +38,10 @@ miniconda_checksums:
   Miniconda3-4.6.14-Linux-x86_64.sh: md5:718259965f234088d785cad1fbd7de03
   Miniconda2-4.6.14-MacOSX-x86_64.sh: md5:6665a5911f92dce1cf6d1021249af9db
   Miniconda3-4.6.14-MacOSX-x86_64.sh: md5:ffa5f0eead5576fb26b7e6902f5eed09
-
+  Miniconda2-4.7.12-Linux-x86_64.sh: md5:5a218d9dce3a77905d17ae87ac72a1e8
+  Miniconda3-4.7.12-Linux-x86_64.sh: md5:0dba759b8ecfc8948f626fa18785e3d8
+  Miniconda2-4.7.12-MacOSX-x86_64.sh: md5:2498099a426fcaafd1068fd6d79e3a6d
+  Miniconda3-4.7.12-MacOSX-x86_64.sh: md5:677f38d5ab7e1ce4fef134068e3bd76a
 
 miniconda_timeout_seconds: 600
 
@@ -54,3 +57,6 @@ miniconda_pkg_update: True
 
 # become root?
 miniconda_escalate: True
+
+# disable auto update of conda and dependencies at system level on installation/update of a package in conda environment
+miniconda_disable_auto_updates: False
