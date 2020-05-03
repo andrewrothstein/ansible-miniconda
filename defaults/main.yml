@@ -1,51 +1,9 @@
 ---
 # defaults file for miniconda
 miniconda_mirror: https://repo.continuum.io/miniconda
-miniconda_python_ver: 3
 
-miniconda_ver: '4.7.12.1'
-# https://repo.continuum.io/miniconda/
-miniconda_checksums:
-  Miniconda2-4.2.12-Linux-x86_64.sh: md5:c8b836baaa4ff89192947e4b1a70b07e
-  Miniconda3-4.2.12-Linux-x86_64.sh: md5:d0c7c71cc5659e54ab51f2005a8d96f3
-  Miniconda2-4.2.12-MacOSX-x86_64.sh: md5:ff3d7b69e32e1e4246176fb90f8480c8
-  Miniconda3-4.2.12-MacOSX-x86_64.sh: md5:73463d2644d5e428419b7c1d304e89fa
-  Miniconda2-4.3.21-Linux-x86_64.sh: md5:7097150146dd3b83c805223663ebffcc
-  Miniconda3-4.3.21-Linux-x86_64.sh: md5:c1c15d3baba15bf50293ae963abef853
-  Miniconda2-4.3.21-MacOSX-x86_64.sh: md5:3f7860462b4e9cd42d17132300c270cc
-  Miniconda3-4.3.21-MacOSX-x86_64.sh: md5:cf092c4fb158ecf28c88c388ca565d95
-  Miniconda2-4.3.30-Linux-x86_64.sh: md5:bd1655b4b313f7b2a1f2e15b7b925d03
-  Miniconda3-4.3.30-Linux-x86_64.sh: md5:0b80a152332a4ce5250f3c09589c7a81
-  Miniconda2-4.3.30-MacOSX-x86_64.sh: md5:4d05c89e6ee8bce6693a26512a297d63
-  Miniconda3-4.3.30-MacOSX-x86_64.sh: md5:49c6a540347426ab522600a93b73e39e
-  Miniconda2-4.3.31-Linux-x86_64.sh: md5:da2dd466d26e33a2b1f72fdb853a8ff0
-  Miniconda3-4.3.31-Linux-x86_64.sh: md5:7fe70b214bee1143e3e3f0467b71453c
-  Miniconda2-4.3.31-MacOSX-x86_64.sh: md5:2c499488605bafd9e13a430f299f1489
-  Miniconda3-4.3.31-MacOSX-x86_64.sh: md5:d30e50b10b4a69e63e3ed5797d947b3e
-  Miniconda2-4.5.1-Linux-x86_64.sh: md5:332aeff0bb6b45bbf7e220dec17ba867
-  Miniconda3-4.5.1-Linux-x86_64.sh: md5:0c28787e3126238df24c5d4858bd0744
-  Miniconda2-4.5.1-MacOSX-x86_64.sh: md5:ad96c4012ca4d84d94f94d9c2f90a889
-  Miniconda3-4.5.1-MacOSX-x86_64.sh: md5:ac87d2074bd50103468b8681084236f6
-  Miniconda2-4.5.4-Linux-x86_64.sh: md5:8a1c02f6941d8778f8afad7328265cf5
-  Miniconda3-4.5.4-Linux-x86_64.sh: md5:a946ea1d0c4a642ddf0c3a26a18bb16d
-  Miniconda2-4.5.4-MacOSX-x86_64.sh: md5:35f4ca99d33ed56f68745eeaf1449274
-  Miniconda3-4.5.4-MacOSX-x86_64.sh: md5:164ec263c4070db642ce31bb45d68813
-  Miniconda2-4.5.12-Linux-x86_64.sh: md5:4be03f925e992a8eda03758b72a77298
-  Miniconda3-4.5.12-Linux-x86_64.sh: md5:866ae9dff53ad0874e1d1a60b1ad1ef8
-  Miniconda2-4.5.12-MacOSX-x86_64.sh: md5:76041da218ab91e2c9538a5dc19cd14e
-  Miniconda3-4.5.12-MacOSX-x86_64.sh: md5:a583d1e174e1dc960e87fb4b026a9370
-  Miniconda2-4.6.14-Linux-x86_64.sh: md5:faa7cb0b0c8986ac3cacdbbd00fe4168
-  Miniconda3-4.6.14-Linux-x86_64.sh: md5:718259965f234088d785cad1fbd7de03
-  Miniconda2-4.6.14-MacOSX-x86_64.sh: md5:6665a5911f92dce1cf6d1021249af9db
-  Miniconda3-4.6.14-MacOSX-x86_64.sh: md5:ffa5f0eead5576fb26b7e6902f5eed09
-  Miniconda2-4.7.12-Linux-x86_64.sh: md5:5a218d9dce3a77905d17ae87ac72a1e8
-  Miniconda3-4.7.12-Linux-x86_64.sh: md5:0dba759b8ecfc8948f626fa18785e3d8
-  Miniconda2-4.7.12-MacOSX-x86_64.sh: md5:2498099a426fcaafd1068fd6d79e3a6d
-  Miniconda3-4.7.12-MacOSX-x86_64.sh: md5:677f38d5ab7e1ce4fef134068e3bd76a
-  Miniconda2-4.7.12.1-Linux-x86_64.sh: md5:23bf3acd6aead6e91fb936fc185b033e
-  Miniconda3-4.7.12.1-Linux-x86_64.sh: md5:81c773ff87af5cfac79ab862942ab6b3
-  Miniconda2-4.7.12.1-MacOSX-x86_64.sh: md5:5a10de42eb90c1c21dbda191f1ec19b1
-  Miniconda3-4.7.12.1-MacOSX-x86_64.sh: md5:621daddf9de519014c6c38e8923583b8
+miniconda_ver: '4.8.2'
+miniconda_python_ver: '38'
 
 miniconda_timeout_seconds: 600
 
@@ -64,3 +22,24 @@ miniconda_escalate: True
 
 # disable auto update of conda and dependencies at system level on installation/update of a package in conda environment
 miniconda_disable_auto_updates: False
+
+miniconda_checksums:
+  '4.8.2':
+    '37':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-ppc64le.sh
+      Linux-ppc64le: sha256:8e854ef9dc66f47b309acbf7845cee7671fea1c7fde05471c0c82b9a79723825
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-x86_64.sh
+      Linux-x86_64: sha256:957d2f0f0701c3d1335e3b39f235d197837ad69a944fa6f5d8ad2c686b69df3b
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:d1fca4f74f9971c27220122723843f6c879a5d13ff59c01fca17ef62a1576732
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Windows-x86_64.exe
+      Windows-x86_64: sha256:1701955cd637d1dad5a84958fd470649b79de973d1570541eb52857664b5056c
+    '38':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.2-Linux-ppc64le.sh
+      Linux-ppc64le: sha256:e9d8f15b598a65753329690479a288d209707d2326d3ec63cb7b00dbb96dea2d
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.2-Linux-x86_64.sh
+      Linux-x86_64: sha256:5bbb193fd201ebe25f4aeb3c58ba83feced6a25982ef4afa86d5506c3656c142
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.2-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:443f6b9b5ff34b9b841203dd1168c6f9ffe507577d113f123ef9c36fca469228
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.2-Windows-x86_64.exe
+      Windows-x86_64: sha256:2eb98bb5b8f350934c2acbec9e7a5315f208869a41bda817835810018ba7ae55

@@ -1,9 +1,9 @@
 ---
 miniconda_platform: '{{ ansible_system }}-{{ ansible_machine }}'
-miniconda_name: 'Miniconda{{ miniconda_python_ver }}-{{ miniconda_ver }}-{{ miniconda_platform }}'
-miniconda_installer_sh: '{{ miniconda_name }}.sh'
+miniconda_name: 'Miniconda3-py{{ miniconda_python_ver }}_{{ miniconda_ver }}-{{ miniconda_platform }}'
+miniconda_installer_sh: '{{ miniconda_name }}{{ miniconda_dot_exe | default(".sh") }}'
 miniconda_installer_url: '{{ miniconda_mirror }}/{{ miniconda_installer_sh }}'
-miniconda_checksum: '{{ miniconda_checksums[miniconda_installer_sh] }}'
+miniconda_checksum: '{{ miniconda_checksums[miniconda_ver][miniconda_python_ver][miniconda_platform] }}'
 
 miniconda_install_dir: '{{ miniconda_parent_dir }}/{{ miniconda_name }}'
 miniconda_link_dir: '{{ miniconda_parent_dir }}/{{ miniconda_link_subdir }}'
