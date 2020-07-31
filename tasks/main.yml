@@ -27,7 +27,20 @@
   changed_when: false
   register: miniconda_conda_binary
 
-- when: not miniconda_conda_binary.stat.exists
+- name: installed conda version output
+  command: "{{ miniconda_conda_binary.stat.path }} -V"
+  changed_when: false
+  register: installed_conda_version
+  when: miniconda_conda_binary.stat.exists
+
+- name: installed conda version
+  set_fact:
+    installed_conda_version: "{{ installed_conda_version.stdout | regex_search(version_output, '\\1') | first }}"
+  vars:
+    version_output: 'conda (.+)'
+  when: installed_conda_version.stdout is defined
+
+- when: not miniconda_conda_binary.stat.exists or installed_conda_version != miniconda_ver
   block:
     - name: download installer...
       become: '{{ miniconda_escalate }}'
