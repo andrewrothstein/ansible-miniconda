@@ -2,7 +2,7 @@
 # defaults file for miniconda
 miniconda_mirror: https://repo.continuum.io/miniconda
 
-miniconda_ver: '4.8.2'
+miniconda_ver: '4.8.3'
 miniconda_python_ver: '38'
 
 miniconda_timeout_seconds: 600
