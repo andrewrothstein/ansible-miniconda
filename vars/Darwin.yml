@@ -1,0 +1,2 @@
+---
+miniconda_platform: 'MacOSX-{{ ansible_machine }}'
