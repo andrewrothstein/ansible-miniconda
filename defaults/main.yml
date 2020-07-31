@@ -24,6 +24,25 @@ miniconda_escalate: True
 miniconda_disable_auto_updates: False
 
 miniconda_checksums:
+  '4.8.3':
+    '37':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-ppc64le.sh
+      Linux-ppc64le: sha256:bcd33ea9240e2720ec004af43194c3fe6d39581e4a957a26621e00c232ca5ca1
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh
+      Linux-x86_64: sha256:bb2e3cedd2e78a8bb6872ab3ab5b1266a90f8c7004a22d8dc2ea5effeb6a439a
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:ccc1bded923a790cd61cd17c83c3dcc374dc0415cfa7fb1f71e6a2438236543d
+      # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Windows-x86_64.exe
+      Windows-x86_64: sha256:6003dbd4d1a9f0c9e64943468d00cf9f6dd2d34cfa0d00c58fe9d175d64c056c
+    '38':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.3-Linux-ppc64le.sh
+      Linux-ppc64le: sha256:362705630a9e85faf29c471faa8b0a48eabfe2bf87c52e4c180825f9215d313c
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.3-Linux-x86_64.sh
+      Linux-x86_64: sha256:879457af6a0bf5b34b48c12de31d4df0ee2f06a8e68768e5758c3293b2daf688
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.3-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:9b9a353fadab6aa82ac0337c367c23ef842f97868dcbb2ff25ec3aa463afc871
+      # https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.3-Windows-x86_64.exe
+      Windows-x86_64: sha256:1f4ff67f051c815b6008f144fdc4c3092af2805301d248b56281c36c1f4333e5
   '4.8.2':
     '37':
       # https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-ppc64le.sh
