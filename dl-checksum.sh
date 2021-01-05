@@ -38,8 +38,8 @@ dlver_help () {
 dlver () {
     local ver=$1
     printf "  '%s':\n" $ver
-    dlver_help $ver 37
     dlver_help $ver 38
+    dlver_help $ver 39
 }
 
-dlver ${1:-4.8.3}
+dlver ${1:-4.9.2}
