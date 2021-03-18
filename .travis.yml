@@ -13,11 +13,11 @@ env:
 - OS=archlinux_latest
 - OS=centos_7
 - OS=centos_8
+- OS=debian_bullseye
 - OS=debian_buster
 - OS=debian_stretch
 - OS=fedora_31
 - OS=fedora_32
-- OS=gentoo_latest
 - OS=ubi8_8.1
 - OS=ubi8_8.2
 - OS=ubuntu_bionic

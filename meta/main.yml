@@ -1,6 +1,6 @@
 dependencies:
 - role: andrewrothstein.alpine-glibc-shim
-  version: v2.0.12
+  version: v2.0.14
 - role: andrewrothstein.bash
   version: v1.1.6
 - role: andrewrothstein.unarchive-deps
@@ -25,6 +25,7 @@ galaxy_info:
     - all
   - name: Debian
     versions:
+    - bullseye
     - buster
     - stretch
   - name: EL
