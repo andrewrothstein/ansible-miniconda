@@ -8,20 +8,20 @@ miniconda_python_ver: '39'
 miniconda_timeout_seconds: 600
 
 # add the miniconda python onto the front of the path.
-miniconda_make_sys_default: False
+miniconda_make_sys_default: false
 
 miniconda_parent_dir: /usr/local
 
 # for ease of use as a drop in replacements for an anaconda installation
 miniconda_link_subdir: anaconda
 
-miniconda_pkg_update: True
+miniconda_pkg_update: true
 
 # become root?
-miniconda_escalate: True
+miniconda_escalate: true
 
 # disable auto update of conda and dependencies at system level on installation/update of a package in conda environment
-miniconda_disable_auto_updates: False
+miniconda_disable_auto_updates: false
 
 miniconda_checksums:
   '4.8.3':
