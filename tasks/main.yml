@@ -60,7 +60,11 @@
     - name: installing....
       become: '{{ miniconda_escalate }}'
       become_user: root
-      shell: TMPDIR={{ miniconda_tmp_dir }} bash {{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }} -b -p {{ miniconda_install_dir }}
+      shell: |
+        (
+          [ ! -z "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }}
+          TMPDIR={{ miniconda_tmp_dir }} bash {{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }} -b -p {{ miniconda_install_dir }}
+        )
       args:
         creates: '{{ miniconda_install_dir }}'
 
@@ -84,7 +88,11 @@
   become: '{{ miniconda_escalate }}'
   become_user: root
   when: miniconda_pkg_update
-  command: '{{ miniconda_conda_bin }} update -y --all'
+  shell: |
+    (
+      [ ! -z "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }}
+      {{ miniconda_conda_bin }} update -y --all
+    )
 
 - name: remove conda-curl since it conflicts with the system curl
   when: miniconda_make_sys_default
