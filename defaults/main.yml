@@ -102,3 +102,10 @@ miniconda_checksums:
       Windows-x86_64: sha256:b33797064593ab2229a0135dc69001bea05cb56a20c2f243b1231213642e260a
 
 miniconda_tmp_dir: /tmp
+
+# It might be necessary to change the umask on some systems, so that users
+# other than "root" can use miniconda.
+# See https://github.com/andrewrothstein/ansible-miniconda/pull/26
+#
+# miniconda_umask: '022'
+miniconda_umask: ''
