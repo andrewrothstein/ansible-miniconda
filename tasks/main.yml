@@ -100,7 +100,7 @@
 
 - name: remove conda-curl since it conflicts with the system curl
   when: miniconda_make_sys_default
-  become: yes
+  become: true
   become_user: root
   conda:
     name: curl
@@ -109,7 +109,7 @@
 
 - name: make system default python etc...
   when: miniconda_make_sys_default
-  become: yes
+  become: true
   become_user: root
   with_items:
     - f: miniconda.sh
@@ -125,7 +125,7 @@
     - l: 'update_dependencies: False'
     - l: 'auto_update_conda: False'
   lineinfile:
-    path: '/etc/conda/.condarc'
+    path: /etc/conda/.condarc
     line: '{{ item.l }}'
     state: present
-    create: yes
+    create: true
