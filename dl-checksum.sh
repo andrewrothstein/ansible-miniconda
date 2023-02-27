@@ -35,7 +35,6 @@ dlver_help () {
     dl $ver $python_ver Linux x86_64
     dl $ver $python_ver MacOSX x86_64
     dl $ver $python_ver MacOSX arm64
-    dl $ver $python_ver Windows x86 exe
     dl $ver $python_ver Windows x86_64 exe
 }
 
@@ -46,4 +45,4 @@ dlver () {
     dlver_help $ver 39
 }
 
-dlver ${1:-4.12.0}
+dlver ${1:-23.1.0-1}
