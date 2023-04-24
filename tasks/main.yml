@@ -44,7 +44,7 @@
     version_output: 'conda (.+)'
   when: installed_conda_version.stdout is defined
 
-- when: not miniconda_conda_binary.stat.exists or installed_conda_version != miniconda_ver
+- when: not miniconda_conda_binary.stat.exists or not installed_conda_version in miniconda_ver
   block:
     - name: ensure that {{ miniconda_tmp_dir }} directory exists
       file:
