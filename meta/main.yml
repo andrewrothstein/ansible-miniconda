@@ -13,21 +13,20 @@ galaxy_info:
   platforms:
     - name: Archlinux
       versions:
-      - all
+        - all
     - name: Debian
       versions:
-      - bullseye
-      - buster
+        - bookworm
+        - bullseye
     - name: EL
       versions:
-      - 8
-      - 9
+        - 8
+        - 9
     - name: Fedora
       versions:
-      - 36
-      - 37
+        - 37
+        - 38
     - name: Ubuntu
       versions:
-      - bionic
-      - focal
-      - jammy
+        - focal
+        - jammy
