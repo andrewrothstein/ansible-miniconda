@@ -47,12 +47,15 @@
   when: installed_conda_version.stdout is defined
 
 - name: Downloading and installing miniconda
-  when: not miniconda_conda_binary.stat.exists or not installed_conda_version in miniconda_ver
+  when: >-
+    not miniconda_conda_binary.stat.exists
+    or not installed_conda_version in miniconda_ver
   block:
     - name: Ensure that {{ miniconda_tmp_dir }} directory exists
       ansible.builtin.file:
         path: "{{ miniconda_tmp_dir }}"
         state: directory
+        mode: '755'
 
     - name: Download installer...
       become: '{{ miniconda_escalate }}'
@@ -68,12 +71,12 @@
       become: '{{ miniconda_escalate }}'
       become_user: root
       ansible.builtin.shell: |-
-        [ -n "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }};
-        TMPDIR='{{ miniconda_tmp_dir }}' \
+        [ -n "{{ miniconda_umask }}" ] && umask "{{ miniconda_umask }}";
+        TMPDIR="{{ miniconda_tmp_dir }}" \
         bash \
-          {{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }} \
+          "{{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }}" \
           -b \
-          -p {{ miniconda_install_dir }};
+          -p "{{ miniconda_install_dir }}";
       args:
         creates: '{{ miniconda_install_dir }}'
 
@@ -133,3 +136,4 @@
     line: '{{ item.l }}'
     state: present
     create: true
+    mode: '{{ item.m | default("644") }}'
