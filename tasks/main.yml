@@ -29,7 +29,7 @@
 - name: Check for installation of Miniconda
   become: '{{ miniconda_escalate }}'
   ansible.builtin.stat:
-    path: '{{  miniconda_conda_bin  }}'
+    path: '{{  miniconda_conda_bin }}'
   changed_when: false
   register: miniconda_conda_binary
 
