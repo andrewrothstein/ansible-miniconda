@@ -16,7 +16,7 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: install Miniconda OS pkg dependencies
+- name: Install Miniconda OS pkg dependencies
   become: '{{ miniconda_escalate }}'
   become_user: root
   with_items: '{{ miniconda_dep_pkgs | default([]) }}'
@@ -67,14 +67,9 @@
     - name: Installing....
       become: '{{ miniconda_escalate }}'
       become_user: root
-      environment:
-        TMPDIR: '{{ miniconda_tmp_dir }}'
       ansible.builtin.shell: |-
-        set -ex;
-        if [ -n "{{ miniconda_umask }}" ];
-        then
-          umask {{ miniconda_umask }}
-        fi;
+        [ -n "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }};
+        TMPDIR='{{ miniconda_tmp_dir }}' \
         bash \
           {{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }} \
           -b \
@@ -94,7 +89,7 @@
     - name: Deleting installer...
       become: '{{ miniconda_escalate }}'
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }}'
         state: absent
 
@@ -102,7 +97,8 @@
   become: '{{ miniconda_escalate }}'
   become_user: root
   when: miniconda_pkg_update
-  shell: |-
+  changed_when: false
+  ansible.builtin.shell: |-
     [ -n "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }};
     {{ miniconda_conda_bin }} update -y --all
 
