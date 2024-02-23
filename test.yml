@@ -1,7 +1,9 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.miniconda
+  hosts: all
+  vars:
+    miniconda_make_sys_default: true
+    miniconda_pkg_update: false
+    miniconda_disable_auto_updates: true
   roles:
     - role: '{{ playbook_dir }}'
-      miniconda_make_sys_default: true
-      miniconda_pkg_update: false
-      miniconda_disable_auto_updates: true
