@@ -30,7 +30,6 @@ dlver_help () {
     local python_ver=$2
     printf "    '%s':\n" $python_ver
     dl $ver $python_ver Linux aarch64
-    dl $ver $python_ver Linux ppc64le
     dl $ver $python_ver Linux s390x
     dl $ver $python_ver Linux x86_64
     dl $ver $python_ver MacOSX x86_64
@@ -45,4 +44,4 @@ dlver () {
     dlver_help $ver 311
 }
 
-dlver ${1:-23.5.2-0}
+dlver ${1:-23.11.0-2}

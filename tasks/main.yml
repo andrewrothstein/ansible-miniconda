@@ -1,10 +1,12 @@
 ---
-- include_role:
+- name: Install andrewrothstein.bash
+  ansible.builtin.include_role:
     name: andrewrothstein.bash
-- include_role:
+- name: Install andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -14,91 +16,96 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: install Miniconda OS pkg dependencies
+- name: Install Miniconda OS pkg dependencies
   become: '{{ miniconda_escalate }}'
   become_user: root
   with_items: '{{ miniconda_dep_pkgs | default([]) }}'
   loop_control:
     loop_var: miniconda_os_pkg
-  package:
+  ansible.builtin.package:
     state: present
     name: '{{ miniconda_os_pkg }}'
 
-- name: check for installation of Miniconda
+- name: Check for installation of Miniconda
   become: '{{ miniconda_escalate }}'
-  stat:
-    path: '{{  miniconda_conda_bin  }}'
+  ansible.builtin.stat:
+    path: '{{  miniconda_conda_bin }}'
   changed_when: false
   register: miniconda_conda_binary
 
-- name: installed conda version output
-  command: "{{ miniconda_conda_binary.stat.path }} -V"
+- name: Installed conda version output
+  ansible.builtin.command: "{{ miniconda_conda_binary.stat.path }} -V"
   changed_when: false
   register: installed_conda_version
   when: miniconda_conda_binary.stat.exists
 
-- name: installed conda version
-  set_fact:
+- name: Installed conda version
+  ansible.builtin.set_fact:
     installed_conda_version: "{{ installed_conda_version.stdout | regex_search(version_output, '\\1') | first }}"
   vars:
     version_output: 'conda (.+)'
   when: installed_conda_version.stdout is defined
 
-- when: not miniconda_conda_binary.stat.exists or not installed_conda_version in miniconda_ver
+- name: Downloading and installing miniconda
+  when: >-
+    not miniconda_conda_binary.stat.exists
+    or not installed_conda_version in miniconda_ver
   block:
-    - name: ensure that {{ miniconda_tmp_dir }} directory exists
-      file:
+    - name: Ensure that {{ miniconda_tmp_dir }} directory exists
+      ansible.builtin.file:
         path: "{{ miniconda_tmp_dir }}"
         state: directory
+        mode: '755'
 
-    - name: download installer...
+    - name: Download installer...
       become: '{{ miniconda_escalate }}'
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ miniconda_installer_url }}'
         dest: '{{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }}'
         timeout: '{{ miniconda_timeout_seconds }}'
         checksum: '{{ miniconda_checksum }}'
-        mode: 0755
+        mode: '755'
 
-    - name: installing....
+    - name: Installing....
       become: '{{ miniconda_escalate }}'
       become_user: root
-      shell: |
-        (
-          [ ! -z "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }}
-          TMPDIR={{ miniconda_tmp_dir }} bash {{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }} -b -p {{ miniconda_install_dir }}
-        )
+      ansible.builtin.shell: |-
+        [ -n "{{ miniconda_umask }}" ] && umask "{{ miniconda_umask }}";
+        TMPDIR="{{ miniconda_tmp_dir }}" \
+        bash \
+          "{{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }}" \
+          -b \
+          -p "{{ miniconda_install_dir }}";
       args:
         creates: '{{ miniconda_install_dir }}'
 
-    - name: link miniconda...
+    - name: Link miniconda...
       become: '{{ miniconda_escalate }}'
       become_user: root
-      file:
+      ansible.builtin.file:
         src: '{{ miniconda_install_dir }}'
         dest: '{{ miniconda_link_dir }}'
         state: link
 
   always:
-    - name: deleting installer...
+    - name: Deleting installer...
       become: '{{ miniconda_escalate }}'
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ miniconda_tmp_dir }}/{{ miniconda_installer_sh }}'
         state: absent
 
-- name: update conda pkgs...
+- name: Update conda pkgs...
   become: '{{ miniconda_escalate }}'
   become_user: root
   when: miniconda_pkg_update
-  shell: |
-    (
-      [ ! -z "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }}
-      {{ miniconda_conda_bin }} update -y --all
-    )
+  changed_when: false
+  ansible.builtin.shell: |-
+    [ -n "{{ miniconda_umask }}" ] && umask {{ miniconda_umask }};
+    {{ miniconda_conda_bin }} update -y --all
 
-- name: remove conda-curl since it conflicts with the system curl
+- name: Remove conda-curl since it conflicts with the system curl
   when: miniconda_make_sys_default
   become: true
   become_user: root
@@ -107,25 +114,26 @@
     state: absent
     executable: '{{ miniconda_conda_bin }}'
 
-- name: make system default python etc...
+- name: Make system default python etc...
   when: miniconda_make_sys_default
   become: true
   become_user: root
   with_items:
     - f: miniconda.sh
       d: /etc/profile.d
-  template:
+  ansible.builtin.template:
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'
-    mode: '{{ item.m|default("0644") }}'
+    mode: '{{ item.m | default("644") }}'
 
-- name: disable auto updates of conda and dependencies
+- name: Disable auto updates of conda and dependencies
   when: miniconda_disable_auto_updates
   with_items:
     - l: 'update_dependencies: False'
     - l: 'auto_update_conda: False'
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/conda/.condarc
     line: '{{ item.l }}'
     state: present
     create: true
+    mode: '{{ item.m | default("644") }}'
