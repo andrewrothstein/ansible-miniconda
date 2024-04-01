@@ -268,3 +268,30 @@ miniconda_checksums:
       MacOSX-arm64: sha256:5694c382e6056d62ed874f22692224c4f53bca22e8135b6f069111e081be07aa
       # https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-2-Windows-x86_64.exe
       Windows-x86_64: sha256:c9b32faa9262828702334b16bcb5b53556e630d54e5127f5c36c7ba7ed43179a
+  '24.1.2-0':
+    '310':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Linux-aarch64.sh
+      Linux-aarch64: sha256:e560e737ac0e625dcc19ca2927457c2944434a61280daae2594632aca76d1422
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Linux-s390x.sh
+      Linux-s390x: sha256:014fd09da9f7ecae040d586a6ff4218e508bf0e5e0232be6383ff37973a337c7
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Linux-x86_64.sh
+      Linux-x86_64: sha256:8eb5999c2f7ac6189690d95ae5ec911032fa6697ae4b34eb3235802086566d78
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:f078682fca26350717c1940650c227f9843fe9f3f0ecc87bf2665bccc5c64f9c
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-MacOSX-arm64.sh
+      MacOSX-arm64: sha256:01110da80119c11078d2b39a499b6dc086c5fd4b413f4b333d32feb3b03cbe7b
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Windows-x86_64.exe
+      Windows-x86_64: sha256:1435134c414dd70ff17c108e967f90706040b69567ef86c9965f91059202485e
+    '311':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-Linux-aarch64.sh
+      Linux-aarch64: sha256:1e046ef2d9d47289db2491f103c81b0b4baf943a9234ac59bd5bca076c881d98
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-Linux-s390x.sh
+      Linux-s390x: sha256:0489909051fd9e2c9addfa5fbd531ccb7f8f2463ac47376b8854e5a09b1c4011
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-Linux-x86_64.sh
+      Linux-x86_64: sha256:3f2e5498e550a6437f15d9cc8020d52742d0ba70976ee8fce4f0daefa3992d2e
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:3b26c0867561d0988040193c8efd9f53ca922026f735367436aa05b467b1f187
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-MacOSX-arm64.sh
+      MacOSX-arm64: sha256:b5c4f646144fa4760bd5f6114ff2e6b49a3ef7c57b993f569adceea784f21a52
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-Windows-x86_64.exe
+      Windows-x86_64: sha256:45901852fd1e0dd63c7d2553d0535a1eb1fc6df948ae1eea6c7546b4e58ab547
