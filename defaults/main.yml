@@ -2,8 +2,8 @@
 # defaults file for miniconda
 miniconda_mirror: https://repo.continuum.io/miniconda
 
-miniconda_ver: '24.1.2-0'
-miniconda_python_ver: '311'
+miniconda_ver: '24.9.2-0'
+miniconda_python_ver: '312'
 
 miniconda_timeout_seconds: 600
 
@@ -23,7 +23,7 @@ miniconda_escalate: true
 # disable auto update of conda and dependencies at system level on installation/update of a package in conda environment
 miniconda_disable_auto_updates: false
 
-miniconda_tmp_dir: /tmp
+miniconda_tmp_dir: /tmp/miniconda-tmp
 
 # It might be necessary to change the umask on some systems, so that users
 # other than "root" can use miniconda.
@@ -295,3 +295,43 @@ miniconda_checksums:
       MacOSX-arm64: sha256:b5c4f646144fa4760bd5f6114ff2e6b49a3ef7c57b993f569adceea784f21a52
       # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.1.2-0-Windows-x86_64.exe
       Windows-x86_64: sha256:45901852fd1e0dd63c7d2553d0535a1eb1fc6df948ae1eea6c7546b4e58ab547
+  '24.9.2-0':
+    '310':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-Linux-aarch64.sh
+      Linux-aarch64: sha256:5d022f16ecb01d33ac8c85a87a0a8dccfb025dc90b20dbd56c4b9ae8f9727578
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-Linux-s390x.sh
+      Linux-s390x: sha256:93d75b306151f96a460a80d8849d85636929a90490f44004f4296a0b8399ccc5
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-Linux-x86_64.sh
+      Linux-x86_64: sha256:364869f004c6259268b09a667ed476080bf4f44e9c4ab06a293146df8990d43f
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:7359ff3963ab3ccdc5eec244c610270b456a9584477cb645aa7539924bdd0482
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-MacOSX-arm64.sh
+      MacOSX-arm64: sha256:d666284d5dd9290b446de5dc20e8498545867c7730799cba8f52e97a45db42d2
+      # https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-Windows-x86_64.exe
+      Windows-x86_64: sha256:0b204516a8f73cde36c1715ca2193c557181a323ef0f2048697e0ddc73798524
+    '311':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.9.2-0-Linux-aarch64.sh
+      Linux-aarch64: sha256:c4c12d969be6a02cb7370a0c717400e8eec79dea722ef0fba98d745048948980
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.9.2-0-Linux-s390x.sh
+      Linux-s390x: sha256:8de1e23f3e0a097bc3b9173a1b4b56544bd34d2831b70a71a9d528eeab0dbe90
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.9.2-0-Linux-x86_64.sh
+      Linux-x86_64: sha256:62ef806265659c47e37e22e8f9adce29e75c4ea0497e619c280f54c823887c4f
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.9.2-0-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:5d4229c322629cf2932c3a4e181501c98dae35b866c96d208b6688b0e2381604
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.9.2-0-MacOSX-arm64.sh
+      MacOSX-arm64: sha256:7358a1d53e7f857a9b87af148d20cdd00f3a91eca9f663371dfa3d830c375033
+      # https://repo.anaconda.com/miniconda/Miniconda3-py311_24.9.2-0-Windows-x86_64.exe
+      Windows-x86_64: sha256:a39456dcd57ec37a9cef15ad960ff20b211b086884b2e332afdbd73db245252b
+    '312':
+      # https://repo.anaconda.com/miniconda/Miniconda3-py312_24.9.2-0-Linux-aarch64.sh
+      Linux-aarch64: sha256:86b8df7481646cf87e77873e9789adb7569b58248d3aa629eb2da35e6f2e2eed
+      # https://repo.anaconda.com/miniconda/Miniconda3-py312_24.9.2-0-Linux-s390x.sh
+      Linux-s390x: sha256:876db345b31db6d2b96ab1e2aedfbcea8af6b951a3218e6fd36f657452d1305c
+      # https://repo.anaconda.com/miniconda/Miniconda3-py312_24.9.2-0-Linux-x86_64.sh
+      Linux-x86_64: sha256:8d936ba600300e08eca3d874dee88c61c6f39303597b2b66baee54af4f7b4122
+      # https://repo.anaconda.com/miniconda/Miniconda3-py312_24.9.2-0-MacOSX-x86_64.sh
+      MacOSX-x86_64: sha256:ce3b440c32c9c636bbe529477fd496798c35b96d9db1838e3df6b0a80714da4e
+      # https://repo.anaconda.com/miniconda/Miniconda3-py312_24.9.2-0-MacOSX-arm64.sh
+      MacOSX-arm64: sha256:08d8a82ed21d2dae707554d540b172fe03327347db747644fbb33abfaf07fddd
+      # https://repo.anaconda.com/miniconda/Miniconda3-py312_24.9.2-0-Windows-x86_64.exe
+      Windows-x86_64: sha256:3a8897cc5d27236ade8659f0e119f3a3ccaad68a45de45bfdd3102d8bec412ab

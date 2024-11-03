@@ -42,6 +42,7 @@ dlver () {
     printf "  '%s':\n" $ver
     dlver_help $ver 310
     dlver_help $ver 311
+    dlver_help $ver 312
 }
 
-dlver ${1:-24.1.2-0}
+dlver ${1:-24.9.2-0}
