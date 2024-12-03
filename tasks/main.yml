@@ -49,7 +49,7 @@
 - name: Downloading and installing miniconda
   when: >-
     not miniconda_conda_binary.stat.exists
-    or not installed_conda_version in miniconda_ver
+    or not installed_conda_version
   block:
     - name: Ensure that {{ miniconda_tmp_dir }} directory exists
       ansible.builtin.file:
