@@ -45,4 +45,4 @@ dlver () {
     dlver_help $ver 312
 }
 
-dlver ${1:-24.9.2-0}
+dlver ${1:-24.11.1-0}
